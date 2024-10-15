@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Display Songs</title>
+<link rel="stylesheet" th:href="@{/css/displaySongs.css}">
+<style type="text/css">
+iframe {
+	height: 90px;
+	width: 300px;
+}
+</style>
+</head>
+<body>
+	<header>
+		<h2 class="logo">TuneHub</h2>
+		<nav class="navigation">
+			<a href="#">Home</a> <a href="#">About</a> <a href="#">Contact</a>
+		</nav>
+	</header>
+	<div class="container">
+		<table border>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Artist</th>
+					<th>Genre</th>
+					<th>Play</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="song:${songs}">
+					<td th:text="${song.name}"></td>
+					<td th:text="${song.artist}"></td>
+					<td th:text="${song.genre}"></td>
+					<td><audio controls>
+							<source th:src="${song.link}" type="audio/mpeg">
+						</audio></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

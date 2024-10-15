@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Home Page</title>
+<link rel="stylesheet" th:href="@{/css/index.css}">
+</head>
+<body>
+
+	<header>
+		<h2 class="logo">TuneHub</h2>
+		<nav class="navigation">
+			<a href="#">Home</a> <a href="#">About</a> <a href="#">Contact</a>
+		</nav>
+	</header>
+	<section>
+		<div class="container">
+			<h1>Welcome to TUNEHUB!</h1>
+			<p>Where your musical journey begins. Discover, listen, and lose
+				yourself in the rhythm of endless Tunzz!</p>
+				<br>
+			
+				<a th:href="@{/login}"><button class="btn">Login</button></a> 
+				<a th:href="@{/registration}"><button class="btn">Register</button></a>
+			
+		</div>
+		
+		
+	</section>
+
+</body>
+</html>

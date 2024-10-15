@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/Customer.css}">
+</head>
+<body>
+	<header>
+		<h2 class="logo">TuneHub</h2>
+		<nav class="navigation">
+			<a href="#">Home</a> <a href="#">About</a> <a href="#">Contact</a>
+		</nav>
+	</header>
+	<section>
+		
+			
+			<div th:unless="${isPremium}" class ="non-premium">
+				<a href="pay"><button class="btn">SUBSCRIBE</button></a> <br> <a
+					href="logout"><button class="btn">LOG OUT</button></a>
+			</div>
+			<div th:if="${isPremium}" class = "premium">
+				<table border>
+				<h1>Customer Home</h1>
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Artist</th>
+							<th>Genre</th>
+							<th>Play</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="song:${songs}">
+							<td th:text="${song.name}"></td>
+							<td th:text="${song.artist}"></td>
+							<td th:text="${song.genre}"></td>
+							<td><audio controls>
+									<source th:src="${song.link}" type="audio/mpeg">
+								</audio></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+		
+	</section>
+</body>
+</html>
